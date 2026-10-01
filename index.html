@@ -130,6 +130,7 @@ function show(i,autoplay){
   $('tag').textContent=e.bt;$('name').textContent=e.n;$('desc').textContent=e.d;
   $('cues').innerHTML=e.c.map(x=>'<li>'+x+'</li>').join('');
   $('yt').href='https://www.youtube.com/watch?v='+e.v;
+  $('go').textContent='Circuito desde aquí';
   $('mark').textContent=done[e.n]?'Quitar hecho':'Marcar hecho';
   renderTabs();renderList();
 }
@@ -174,7 +175,7 @@ function finish(){
   $('ph').textContent='Listo';$('tt').textContent='🎉';$('pb').style.width='100%';
   beep(988,500);renderList();
 }
-$('go').onclick=()=>{sel=0;startTimer(true)};
+$('go').onclick=()=>startTimer(true);
 $('one').onclick=()=>startTimer(false);
 $('pause').onclick=()=>{if(!st)return;st.paused=!st.paused;$('pause').textContent=st.paused?'Seguir':'Pausa'};
 $('skip').onclick=()=>{if(!st)return;st.left=1;tick()};
